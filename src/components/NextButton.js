@@ -1,7 +1,11 @@
-function NextButton({ dispatch, answer, question, index, numOfQuestion }) {
+import { useQuiz } from "../contexts/QuizContext";
+
+function NextButton() {
+  const { answer, index, numOfQuestions, dispatch } = useQuiz();
+
   if (answer === null) return null;
 
-  if (index < numOfQuestion - 1) {
+  if (index < numOfQuestions - 1) {
     return (
       <button
         className="btn btn-ui"
@@ -12,7 +16,7 @@ function NextButton({ dispatch, answer, question, index, numOfQuestion }) {
     );
   }
 
-  if (index === numOfQuestion - 1) {
+  if (index === numOfQuestions - 1) {
     return (
       <button
         className="btn btn-ui"

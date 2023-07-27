@@ -1,6 +1,9 @@
-function RestartButton({ dispatch }) {
+import { useQuiz } from "../contexts/QuizContext";
+
+function RestartButton() {
+  const { resetQuiz } = useQuiz();
   return (
-    <button className="btn btn-ui" onClick={() => dispatch({ type: "reset" })}>
+    <button className="btn btn-ui" onClick={() => resetQuiz()}>
       Restart
     </button>
   );
